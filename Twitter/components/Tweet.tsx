@@ -12,10 +12,14 @@ type TweetProps = {
 const Tweet = ({ tweet }: TweetProps) => {
   return (
     <>
-      <Link href={`/tweet/${tweet.id}`} asChild>
-        <Pressable style={styles.container}>
-          <Image src={tweet.user.image} style={styles.userImage} />
-          <View style={styles.mainContainer}>
+      <View style={styles.container}>
+        <Link href={`/user/${tweet.id}`} asChild>
+          <Pressable>
+            <Image src={tweet.user.image} style={styles.userImage} />
+          </Pressable>
+        </Link>
+        <Link href={`/tweet/${tweet.id}`} asChild>
+          <Pressable style={styles.mainContainer}>
             <View style={styles.userContainer}>
               <Text style={styles.name}>{tweet.user.name}</Text>
               <Text style={styles.username}>{tweet.user.username}</Text>
@@ -36,9 +40,9 @@ const Tweet = ({ tweet }: TweetProps) => {
               <IconButton icon="chart" text={tweet.impressions || 0} />
               <IconButton icon="share-apple" />
             </View>
-          </View>
-        </Pressable>
-      </Link>
+          </Pressable>
+        </Link>
+      </View>
     </>
   );
 };
