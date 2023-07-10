@@ -7,15 +7,18 @@ import {
   Pressable,
   Alert,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import tweets from "../assets/data/tweets";
 import { Link } from "expo-router";
+import { template } from "@babel/core";
 
 const tweet = tweets[0];
 
 const NewTweet = () => {
+  const [text, setText] = useState("");
+
   const onTweetPress = () => {
-    Alert.alert("Posting tweet...");
+    Alert.alert("Posting tweet:", text);
   };
   return (
     <View style={styles.container}>
@@ -30,6 +33,8 @@ const NewTweet = () => {
       <View style={styles.inputContainer}>
         <Image src={tweet.user.image} style={styles.image} />
         <TextInput
+          value={text}
+          onChangeText={(newValue) => setText(newValue)}
           placeholder="What's happening?"
           multiline
           numberOfLines={5}
