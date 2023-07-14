@@ -1,10 +1,10 @@
 import { StyleSheet, Image, FlatList, Pressable } from "react-native";
 
-import { Text, View } from "../../../components/Themed";
-import tweets from "../../../assets/data/tweets";
+import { Text, View } from "../../../../components/Themed";
+import tweets from "../../../../assets/data/tweets";
 import { Entypo } from "@expo/vector-icons";
 import { Link } from "expo-router";
-import Tweet from "../../../components/Tweet";
+import Tweet from "../../../../components/Tweet";
 
 export default function TabOneScreen() {
   return (
